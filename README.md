@@ -1,4 +1,4 @@
-# 🛒 Retail Data Quality & Governance Portfolio Project
+# 🛒 Retail Data Quality & Governance
 
 This portfolio project demonstrates **data quality** and **data governance** practices on a simulated **retail catalog dataset** (~5,000 rows).  
 It is designed to showcase skills relevant to **retail/e-commerce companies** such as **Walmart, Instacart, and Loblaw**, where managing large product catalogs and ensuring high-quality data is critical.
