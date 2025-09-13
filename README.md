@@ -8,7 +8,9 @@ It is designed to showcase skills relevant to **retail/e-commerce companies** su
 ## 📂 Dataset Overview
 
 **File:** `data/retail_products.csv`  
+
 **Rows:** ~5,000 SKUs 
+
 **Columns:**
 
 | Column         | Description                                                                 |
@@ -20,6 +22,7 @@ It is designed to showcase skills relevant to **retail/e-commerce companies** su
 | `category`     | Product category (e.g., Beverages, Snacks, Personal Care).                  |
 | `image_url`    | Link to product image (simulated, public-safe placeholder images).           |
 | `source`       | Indicates the source system (`mock_walmart`, `mock_instacart`, etc.).       |
+
 
 📌 **Why this dataset?**  
 This structure mirrors real catalog data in retail giants. It supports **data quality checks** (e.g., GTIN validation, null checks) and **governance workflows** (mapping attributes to a business glossary in Collibra, building KPIs in Tableau).
