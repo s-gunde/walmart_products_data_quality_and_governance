@@ -33,10 +33,12 @@ This structure mirrors real catalog data in retail giants. It supports **data qu
 
 ### 🔍 Data Quality
 - **Great Expectations** validations:
-  - ✅ GTIN format validation (must be 8/12/13/14 digits)  
-  - ✅ GTIN uniqueness  
-  - ✅ Non-null constraints on `brand`, `product_name`, and `size`  
-  - ✅ Valid URLs for `image_url`  
+  - ✅ **GTIN**: Must be numeric, 8/12/13/14 characters, unique   
+  - ✅ **Brand**: Cannot be null, max length 100 
+  - ✅ **Product Name**: Cannot be null, meaningful length (> 3 chars)  
+  - ✅ **Size**: Should follow valid unit patterns (g, ml, oz, L)
+  - ✅ **Category**: Should map to controlled vocabulary (governed taxonomy)  
+  - ✅ **Image URL**: Must be a valid link (`http`/`https`)  
 
 ### 📊 Exploratory Analysis
 - **Jupyter Notebook** (`notebooks/exploratory_analysis.ipynb`) profiling:
@@ -58,7 +60,25 @@ This structure mirrors real catalog data in retail giants. It supports **data qu
   - % valid GTINs  
   - % missing values  
   - Top brands & categories  
-- Embed Tableau link in portfolio for visibility  
+- Embed Tableau link in portfolio for visibility
+
+### :rocket: Workflow 
+
+1. Run `notebooks/exploratory_analysis.ipynb` for initial profiling  
+2. Execute `scripts/run_data_quality_checks.py` → generates `validation_results.json`  
+3. Upload metadata & quality results to Collibra for governance  
+4. Visualize quality KPIs in Tableau  
+
+### 📡 Data Source & License
+
+This dataset is **curated from fully public sources** for portfolio/demo purposes:  
+
+- **[Open Food Facts](https://world.openfoodfacts.org/)** (primary source)  
+  - Open, crowdsourced food product database  
+  - Provides GTIN, brand, product name, size, categories, and images  
+  - Licensed under the [Open Database License (ODbL)](https://opendatacommons.org/licenses/odbl/)  
+
+Additional supplemental product metadata comes from **other open datasets** (e.g., Kaggle/UCI) to balance categories and maintain a retail-like schema.  
 
 ---
 
@@ -82,3 +102,5 @@ retail-data-quality-portfolio/
 │   └── collibra_integration.md
 │
 │── README.md
+
+
