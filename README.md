@@ -96,6 +96,7 @@ retail-data-quality-portfolio/
 │   └── exploratory_analysis.ipynb
 │
 │── scripts/
+│   └── generate_image_URLs.py
 │   └── run_data_quality_checks.py
 │
 │── docs/
