@@ -3,3 +3,4 @@ great_expectations
 matplotlib
 seaborn
 openpyxl
+requests
