@@ -1,84 +1,117 @@
 # 🛒 Retail Data Quality & Governance
 
-This portfolio project demonstrates **data quality** and **data governance** practices on a simulated **retail catalog dataset** (~5,000 rows).  
-It is designed to showcase skills relevant to **retail/e-commerce companies** such as **Walmart, Instacart, and Loblaw**, where managing large product catalogs and ensuring high-quality data is critical.
+## Project Overview
+This project analyzes **real-time Walmart USA retail data**, focusing on price distributions, product
+categories, and data quality improvements.
+The data is binned into meaningful ranges to understand how Walmart prices its vast product catalog.
+This project simulates how a **retail data governance pipeline** might look in such an enterprise setting.  
+
+
+This project integrates:  
+✅ **Exploratory Data Analysis (EDA)** 📊  
+✅ **Data Cleaning & Validation** 🧹  
+✅ **Great Expectations for Automated Data Quality Checks** ✅  
+✅ **Collibra for Enterprise Data Governance** 🗂️  
+✅ **Tableau Dashboard for Data Quality Metrics** 📈  
+
+## 🌎 About Walmart USA  
+
+- **Walmart Inc.** is the world’s largest retailer, headquartered in Bentonville, Arkansas, USA.  
+- In **2024**, Walmart generated **$648 billion in revenue** globally, with the **majority from U.S. retail operations**.  
+- Walmart operates **4,600+ stores in the U.S.** and is known for its **massive product catalog** of groceries, apparel, electronics, health, and household goods.  
+- Walmart’s data is unique due to:  
+  - 📦 **Billions of SKUs** across thousands of categories.  
+  - 🏷️ **Rich product metadata** (GTIN, Brand, Category, Price, Size, Images).  
+  - ⚡ **Real-time updates** across stores and e-commerce.  
+  - 🔄 **High-frequency transactions** (millions per day).  
+- Managing **data quality at Walmart-scale** is mission-critical for supply chain efficiency, customer experience, and financial reporting.  
+
+
 
 ---
 
-## 📂 Dataset Overview
+## 🔎 Step 1: Exploratory Data Analysis
+- Profiled 5K Walmart product records.  
+- Identified issues: missing GTINs, invalid prices, duplicate products, inconsistent brand/category labels.  
+- Created visual summaries (price distribution, brand/category breakdowns).
 
-**File:** `data/retail_products.csv`  
-
-**Rows:** ~5,000 SKUs 
-
-**Columns:**
-
-| Column         | Description                                                                 |
-|----------------|-----------------------------------------------------------------------------|
-| `gtin`         | Global Trade Item Number (8, 12, 13, or 14 digits). Unique identifier for retail products. |
-| `brand`        | Brand/manufacturer of the product (e.g., Kellogg’s, Nestlé, Unilever).      |
-| `product_name` | Human-readable product title (e.g., *Coca-Cola Zero Sugar 355ml*).          |
-| `size`         | Pack or unit size (e.g., `355ml`, `500g`, `12oz`, `2L`).                    |
-| `category`     | Product category (e.g., Beverages, Snacks, Personal Care).                  |
-| `image_url`    | Link to product image (simulated, public-safe placeholder images).           |
-| `source`       | Indicates the source system (`mock_walmart`, `mock_instacart`, etc.).       |
-
-
-📌 **Why this dataset?**  
-This structure mirrors real catalog data in retail giants. It supports **data quality checks** (e.g., GTIN validation, null checks) and **governance workflows** (mapping attributes to a business glossary in Collibra, building KPIs in Tableau).
+- 📈 **Price Distribution** across ranges (0–2000 USD).  
+- 🏷️ **Brand Coverage** – top 5 brands across bins.  
+- 📂 **Category Analysis** – most common categories.  
+- 🔍 **Missing Values** – % missing GTINs, Brands, Prices.  
+- ⚠️ **Outliers** – extreme prices beyond $2000 flagged.  
 
 ---
 
-## ⚡ Features
+## 🧹 Step 2: Data Cleaning
+- Removed duplicates and invalid GTINs.  
+- Normalized brand/category casing.  
+- Filtered out products with missing or invalid prices.  
+- Output: **clean dataset** ready for validation.
 
-### 🔍 Data Quality
-- **Great Expectations** validations:
-  - ✅ **GTIN**: Must be numeric, 8/12/13/14 characters, unique   
-  - ✅ **Brand**: Cannot be null, max length 100 
-  - ✅ **Product Name**: Cannot be null, meaningful length (> 3 chars)  
-  - ✅ **Size**: Should follow valid unit patterns (g, ml, oz, L)
-  - ✅ **Category**: Should map to controlled vocabulary (governed taxonomy)  
-  - ✅ **Image URL**: Must be a valid link (`http`/`https`)  
+---
 
-### 📊 Exploratory Analysis
-- **Jupyter Notebook** (`notebooks/exploratory_analysis.ipynb`) profiling:
-  - Missing values per column  
-  - Duplicate detection  
-  - Top categories and brands  
-  - GTIN length distribution  
+## ✅ Step 3: Data Validation (Great Expectations)
+- Automated rules:
+  - GTIN → not null, unique, 12–14 digits.  
+  - Price → > 0 and < 10,000.  
+  - Brand & Category → not null.  
+  - Product Name → length 3–200 chars.  
+- Generated **HTML validation docs** for transparency.
 
-### 🏢 Governance Simulation
-- **Collibra Integration** (`docs/collibra_integration.md`):
-  - Map dataset columns to governed assets (e.g., GTIN → Global Trade Item)  
-  - Assign stewardship & ownership  
-  - Use Great Expectations JSON as **data quality evidence**  
-  - Simulate lineage: *Raw data → Quality checks → Business dashboards*  
+---
 
-### 📈 Tableau Dashboard
-- Upload dataset to **Tableau Public**  
-- Build KPI visualizations:  
-  - % valid GTINs  
-  - % missing values  
-  - Top brands & categories  
-- Embed Tableau link in portfolio for visibility
+## 🏛️ Step 4: Data Governance (Collibra)
+- Built a **data dictionary** defining key fields (GTIN, Price, Brand, Category).  
+- Linked business policies (e.g., “Price must be > 0”) to technical rules in Great Expectations.  
+- Demonstrated **lineage** from raw → cleaned → validated → dashboard.
 
-### :rocket: Workflow 
+📑 Business Glossary – GTIN, Brand, Price, Category definitions.
+🛡️ Policies & Standards – e.g., 98% GTIN validity, <1% missing brands.
+🔍 Data Lineage – Raw Walmart data → Cleaning → Validation → Dashboard.
+📝 Issue Management – Track exceptions like invalid GTINs or missing categories.
 
-1. Run `notebooks/exploratory_analysis.ipynb` for initial profiling  
-2. Execute `scripts/run_data_quality_checks.py` → generates `validation_results.json`  
-3. Upload metadata & quality results to Collibra for governance  
-4. Visualize quality KPIs in Tableau  
+---
+
+## 📊 Step 5: Tableau Dashboard
+An interactive dashboard with:
+- **KPI Cards**: Completeness %, Valid Prices %, Overall Data Quality Score.  
+- **Failures by Rule**: Which rules fail most often.  
+- **Category Breakdown**: Which categories have the poorest quality.  
+- **Price Outlier Detection**.  
+- **Quality Trend Over Time**.
+
+This dashboard simulates how retail stakeholders track **catalog health** and prioritize fixes.
+
+---
+
+## 🚀 Tools & Tech
+- **Python** → EDA, cleaning, validation.  
+- **Great Expectations** → automated quality checks.  
+- **Collibra** → data governance policies & dictionary.  
+- **Tableau** → interactive data quality KPIs.  
+
+---
+
+## 🎯 Impact
+This project demonstrates:
+- **Data Engineering** → building pipelines for validation.  
+- **Data Governance** → linking technical rules with business policies.  
+- **Data Visualization** → translating quality into business KPIs.  
+
+🎯 Key Takeaways
+
+- Real-world Walmart USA retail dataset used.
+- End-to-end governance pipeline → EDA → Cleaning → Validation → Governance → Dashboard.
+- Enterprise tools simulated: Great Expectations + Collibra + Tableau.
+- Communicates data quality to business stakeholders clearly.
+
+
 
 ### 📡 Data Source & License
 
-This dataset is **curated from fully public sources** for portfolio/demo purposes:  
+- Walmart Product Details 2020 — [Kaggle](https://www.kaggle.com/datasets/promptcloud/walmart-product-details-2020) 
 
-- **[Open Food Facts](https://world.openfoodfacts.org/)** (primary source)  
-  - Open, crowdsourced food product database  
-  - Provides GTIN, brand, product name, size, categories, and images  
-  - Licensed under the [Open Database License (ODbL)](https://opendatacommons.org/licenses/odbl/)  
-
-Additional supplemental product metadata comes from **other open datasets** (e.g., Kaggle/UCI) to balance categories and maintain a retail-like schema.  
 
 ### Impact Story
 
@@ -89,23 +122,26 @@ I built a retail data quality governance project using Walmart product data. I s
 ## 📂 Project Structure
 
 ```bash
-retail-data-quality-portfolio/
-│── data/
-│   └── retail_products.csv
+retail_data_quality/
 │
-│── expectations/
-│   └── validation_results.json   # JSON quality report
+├── data/
+│   ├── walmart_products_sample.csv        # Raw 5K records
+│   └── walmart_products_clean.csv         # Cleaned records
 │
-│── notebooks/
-│   └── exploratory_analysis.ipynb
+├── notebooks/
+│   └── 01_eda.ipynb                       # EDA + profiling
 │
-│── scripts/
-│   └── generate_image_URLs.py
-│   └── run_data_quality_checks.py
+├── scripts/
+│   ├── 02_data_cleaning.py                # Cleaning rules
+│   └── 03_data_validation.py              # Validation checks
 │
-│── docs/
-│   └── collibra_integration.md
+├── governance/
+│   └── data_dictionary.xlsx               # Business rules (Collibra-style)
 │
-│── README.md
+├── dashboards/
+│   └── data_quality_dashboard.twbx        # Tableau dashboard (KPIs)
+│
+├── README.md
+└── requirements.txt
 
 
