@@ -80,6 +80,10 @@ This dataset is **curated from fully public sources** for portfolio/demo purpose
 
 Additional supplemental product metadata comes from **other open datasets** (e.g., Kaggle/UCI) to balance categories and maintain a retail-like schema.  
 
+### Impact Story
+
+I built a retail data quality governance project using Walmart product data. I started with EDA to profile issues, then enforced rules using Great Expectations. I connected these rules to business policies in Collibra and finally delivered a Tableau dashboard that shows data quality KPIs in real time. This project simulates how companies like Instacart or Walmart monitor catalog health and aligns perfectly with data engineering + governance roles.
+
 ---
 
 ## 📂 Project Structure
