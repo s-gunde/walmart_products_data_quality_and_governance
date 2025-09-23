@@ -1,9 +1,9 @@
 # 🛒 Retail Data Quality & Governance
 
 ## Project Overview
-This project analyzes **real-time Walmart USA retail data**, focusing on price distributions, product
-categories, and data quality improvements.
-The data is binned into meaningful ranges to understand how Walmart prices its vast product catalog.
+The project analyzes **real-time Walmart USA retail data**, focusing on price distributions, product
+categories, and data quality improvements and to understand how Walmart prices its vast product catalog.
+
 This project simulates how a **retail data governance pipeline** might look in such an enterprise setting.  
 
 
@@ -14,6 +14,9 @@ This project integrates:
 ✅ **Collibra for Enterprise Data Governance** 🗂️  
 ✅ **Tableau Dashboard for Data Quality Metrics** 📈  
 
+
+
+---
 ## 🌎 About Walmart USA  
 
 - **Walmart Inc.** is the world’s largest retailer, headquartered in Bentonville, Arkansas, USA.  
@@ -25,21 +28,20 @@ This project integrates:
   - ⚡ **Real-time updates** across stores and e-commerce.  
   - 🔄 **High-frequency transactions** (millions per day).  
 - Managing **data quality at Walmart-scale** is mission-critical for supply chain efficiency, customer experience, and financial reporting.  
-
-
-
 ---
+
+
 
 ## 🔎 Step 1: Exploratory Data Analysis
 - Profiled 5K Walmart product records.  
 - Identified issues: missing GTINs, invalid prices, duplicate products, inconsistent brand/category labels.  
 - Created visual summaries (price distribution, brand/category breakdowns).
-
-- 📈 **Price Distribution** across ranges (0–2000 USD).  
-- 🏷️ **Brand Coverage** – top 5 brands across bins.  
-- 📂 **Category Analysis** – most common categories.  
-- 🔍 **Missing Values** – % missing GTINs, Brands, Prices.  
-- ⚠️ **Outliers** – extreme prices beyond $2000 flagged.  
+          - 📈 **Price Distribution** across ranges (0–2000 USD).  
+          - 🏷️ **Brand Coverage** – top 5 brands across bins.  
+          - 📂 **Category Analysis** – most common categories.  
+          - 🔍 **Missing Values** – % missing GTINs, Brands, Prices.  
+          - ⚠️ **Outliers** – extreme prices beyond $2000 flagged. 
+ 
 
 ---
 
@@ -122,26 +124,21 @@ I built a retail data quality governance project using Walmart product data. I s
 ## 📂 Project Structure
 
 ```bash
-retail_data_quality/
-│
-├── data/
-│   ├── walmart_products_sample.csv        # Raw 5K records
-│   └── walmart_products_clean.csv         # Cleaned records
-│
-├── notebooks/
-│   └── 01_eda.ipynb                       # EDA + profiling
-│
-├── scripts/
-│   ├── 02_data_cleaning.py                # Cleaning rules
-│   └── 03_data_validation.py              # Validation checks
-│
-├── governance/
-│   └── data_dictionary.xlsx               # Business rules (Collibra-style)
-│
-├── dashboards/
-│   └── data_quality_dashboard.twbx        # Tableau dashboard (KPIs)
-│
-├── README.md
-└── requirements.txt
-
+walmart-data-quality-project/
+│── data/
+│   └── walmart_retail.csv
+│── expectations/
+│   └── walmart_suite.json        # auto-generated GX suite
+│── gx_reports/                   # GX validation docs
+│── notebooks/
+│   └── eda.ipynb                 # optional: your EDA notebook
+│── scripts/
+│   ├── create_expectations.py    # define rules
+│   ├── run_validation.py         # run checks + generate report
+│── governance/
+│   └── collibra_glossary.md      # mockup of business glossary
+│── dashboards/
+│   └── tableau_design.png        # Tableau dashboard screenshot / design
+│── README.md                     # case study writeup
+|__ requirements.txt
 
