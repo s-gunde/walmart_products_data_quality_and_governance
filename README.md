@@ -68,10 +68,10 @@ This project integrates:
 - Linked business policies (e.g., “Price must be > 0”) to technical rules in Great Expectations.  
 - Demonstrated **lineage** from raw → cleaned → validated → dashboard.
 
-📑 Business Glossary – GTIN, Brand, Price, Category definitions.
-🛡️ Policies & Standards – e.g., 98% GTIN validity, <1% missing brands.
-🔍 Data Lineage – Raw Walmart data → Cleaning → Validation → Dashboard.
-📝 Issue Management – Track exceptions like invalid GTINs or missing categories.
+    - 📑 Business Glossary – GTIN, Brand, Price, Category definitions.
+    - 🛡️ Policies & Standards – e.g., 98% GTIN validity, <1% missing brands.
+    - 🔍 Data Lineage – Raw Walmart data → Cleaning → Validation → Dashboard.
+    - 📝 Issue Management – Track exceptions like invalid GTINs or missing categories.
 
 ---
 
@@ -98,24 +98,23 @@ This project demonstrates:
 - **Data Engineering** → building pipelines for validation.  
 - **Data Governance** → linking technical rules with business policies.  
 - **Data Visualization** → translating quality into business KPIs.  
+###  Key Takeaways
+     - Real-world Walmart USA retail dataset used.
+     - End-to-end governance pipeline → EDA → Cleaning → Validation → Governance → Dashboard.
+     - Enterprise tools simulated: Great Expectations + Collibra + Tableau.
+     - Communicates data quality to business stakeholders clearly.
 
-🎯 Key Takeaways
+---
 
-- Real-world Walmart USA retail dataset used.
-- End-to-end governance pipeline → EDA → Cleaning → Validation → Governance → Dashboard.
-- Enterprise tools simulated: Great Expectations + Collibra + Tableau.
-- Communicates data quality to business stakeholders clearly.
-
-
-
-### 📡 Data Source & License
+## 📡 Data Source & License
 
 - Walmart Product Details 2020 — [Kaggle](https://www.kaggle.com/datasets/promptcloud/walmart-product-details-2020) 
 
+---
 
 ### Impact Story
 
-I built a retail data quality governance project using Walmart product data. I started with EDA to profile issues, then enforced rules using Great Expectations. I connected these rules to business policies in Collibra and finally delivered a Tableau dashboard that shows data quality KPIs in real time. This project simulates how companies like Instacart or Walmart monitor catalog health and aligns perfectly with data engineering + governance roles.
+I built a **Retail Data Quality and Governance** project using Walmart product data. I started with **EDA to profile issues**, then enforced rules using **Great Expectations**. I connected these rules to business policies in **Collibra** and finally **created charts** to see failure trends that shows data quality KPIs in real time. This project simulates how companies like Instacart or Walmart monitor catalog health and aligns perfectly with data engineering + governance roles.
 
 ---
 
