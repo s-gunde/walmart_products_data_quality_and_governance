@@ -11,7 +11,7 @@
   - Data Owner: Catalog Team
   - Quality Rule: No nulls, standardized capitalization.
 
-  - **Product Name:**
+- **Product Name:**
   - Definition: Name of the Product
   - Data Owner: Catalog Team
   - Quality Rule: No nulls, standardized capitalization.

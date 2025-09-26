@@ -55,8 +55,8 @@ This project integrates:
 
 ## ✅ Step 3: Data Validation (Great Expectations)
 - Automated rules:
-  - GTIN → not null, unique, 12–14 digits.  
-  - Price → > 0 and < 10,000.  
+  - GTIN → not null, unique, 12 digits.  
+  - Price → > 0 and < 5,000.  
   - Brand & Category → not null.  
   - Product Name → length 3–200 chars.  
 - Generated **HTML validation docs** for transparency.
@@ -75,11 +75,10 @@ This project integrates:
 
 ---
 
-## 📊 Step 5: Tableau Dashboard
+## 📊 Step 5: Dashboard
 An interactive dashboard with:
 - **KPI Cards**: Completeness %, Valid Prices %, Overall Data Quality Score.  
-- **Failures by Rule**: Which rules fail most often.  
-- **Category Breakdown**: Which categories have the poorest quality.  
+- **Failures by Rule**: Which rules fail most often.   
 - **Price Outlier Detection**.  
 - **Quality Trend Over Time**.
 
@@ -90,8 +89,7 @@ This dashboard simulates how retail stakeholders track **catalog health** and pr
 ## 🚀 Tools & Tech
 - **Python** → EDA, cleaning, validation.  
 - **Great Expectations** → automated quality checks.  
-- **Collibra** → data governance policies & dictionary.  
-- **Tableau** → interactive data quality KPIs.  
+- **Collibra** → data governance policies & dictionary.    
 
 ---
 
@@ -124,21 +122,39 @@ I built a retail data quality governance project using Walmart product data. I s
 ## 📂 Project Structure
 
 ```bash
+
 walmart-data-quality-project/
+│
 │── data/
-│   └── walmart_retail.csv
+│   ├── walmart_product_details.csv       # Raw source dataset
+│   ├── walmart_products_sample.csv       # Sample for quick testing
+│   ├── walmart_products_cleaned.csv      # Cleaned version after preprocessing
+│   └── walmart_validation_summary.csv    # Validation results (CSV summary)
+│
 │── expectations/
-│   └── walmart_suite.json        # auto-generated GX suite
-│── gx_reports/                   # GX validation docs
+│   └── walmart_suite.json                # Auto-generated GX suite (rules)
+│
+│── gx_reports/                           # Great Expectations validation HTML docs
+│
 │── notebooks/
-│   └── eda.ipynb                 # optional: your EDA notebook
+│   ├── eda.ipynb                         # Exploratory data analysis notebook
+│   └── data_cleaning.ipynb               # Data cleaning & preprocessing notebook
+│
 │── scripts/
-│   ├── create_expectations.py    # define rules
-│   ├── run_validation.py         # run checks + generate report
+│   ├── create_expectations.py            # Define expectations/rules
+│   ├── run_validation.py                 # Run checks + save summary
+│   ├── build_charts.py                   # Generate matplotlib/seaborn plots
+│   └── data/                             # Local outputs for scripts     
+│       └── plots/
+│           ├── overall_success_rate.png
+│           ├── failures_by_column.png
+│           ├── success_heatmap.png
+│           └── latest_run_snapshot.png
+│
 │── governance/
-│   └── collibra_glossary.md      # mockup of business glossary
-│── dashboards/
-│   └── tableau_design.png        # Tableau dashboard screenshot / design
-│── README.md                     # case study writeup
-|__ requirements.txt
+│   └── collibra_glossary.md              # Mockup of business glossary
+│
+│── README.md                             # Case study writeup
+│── requirements.txt                      # Dependencies
+
 
