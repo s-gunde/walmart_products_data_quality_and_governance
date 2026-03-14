@@ -1,4 +1,4 @@
-# 🛒 Retail Data Quality & Governance
+# Retail Data Quality & Governance 🛒
 
 ## Project Overview
 The project analyzes **real-time Walmart USA retail data**, focusing on price distributions, product
@@ -8,44 +8,45 @@ This project simulates how a **retail data governance pipeline** might look in s
 
 
 This project integrates:  
-✅ **Exploratory Data Analysis (EDA)** 📊  
-✅ **Data Cleaning & Validation** 🧹  
-✅ **Great Expectations for Automated Data Quality Checks** ✅  
-✅ **Collibra for Enterprise Data Governance** 🗂️  
-✅ **Tableau Dashboard for Data Quality Metrics** 📈  
+- Exploratory Data Analysis (EDA)
+- Data Cleaning & Validation
+- Great Expectations for Automated Data Quality Checks
+- Collibra for Enterprise Data Governance
+- Tableau Dashboard for Data Quality Metrics
 
 
 
 ---
-## 🌎 About Walmart USA  
+## About Walmart USA  
 
 - **Walmart Inc.** is the world’s largest retailer, headquartered in Bentonville, Arkansas, USA.  
 - In **2024**, Walmart generated **$648 billion in revenue** globally, with the **majority from U.S. retail operations**.  
 - Walmart operates **4,600+ stores in the U.S.** and is known for its **massive product catalog** of groceries, apparel, electronics, health, and household goods.  
 - Walmart’s data is unique due to:  
-  - 📦 **Billions of SKUs** across thousands of categories.  
-  - 🏷️ **Rich product metadata** (GTIN, Brand, Category, Price, Size, Images).  
-  - ⚡ **Real-time updates** across stores and e-commerce.  
-  - 🔄 **High-frequency transactions** (millions per day).  
+  - **Billions of SKUs** across thousands of categories.  
+  - **Rich product metadata** (GTIN, Brand, Category, Price, Size, Images).  
+  - **Real-time updates** across stores and e-commerce.  
+  - **High-frequency transactions** (millions per day).  
 - Managing **data quality at Walmart-scale** is mission-critical for supply chain efficiency, customer experience, and financial reporting.  
 ---
 
 
 
-## 🔎 Step 1: Exploratory Data Analysis
+## Step 1: Exploratory Data Analysis
 - Profiled 5K Walmart product records.  
 - Identified issues: missing GTINs, invalid prices, duplicate products, inconsistent brand/category labels.  
 - Created visual summaries (price distribution, brand/category breakdowns).
-          - 📈 **Price Distribution** across ranges (0–2000 USD).  
-          - 🏷️ **Brand Coverage** – top 5 brands across bins.  
-          - 📂 **Category Analysis** – most common categories.  
-          - 🔍 **Missing Values** – % missing GTINs, Brands, Prices.  
-          - ⚠️ **Outliers** – extreme prices beyond $2000 flagged. 
+             
+   - **Brand Coverage** – top 5 brands across bins.  
+   - **Category Analysis** – most common categories.  
+   - **Missing Values** – % missing GTINs, Brands, Prices.  
+   - **Outliers** – extreme prices beyond $2000 flagged.
+   - **Price Distribution** across ranges (0–2000 USD). 
  
 
 ---
 
-## 🧹 Step 2: Data Cleaning
+## Step 2: Data Cleaning
 - Removed duplicates and invalid GTINs.  
 - Normalized brand/category casing.  
 - Filtered out products with missing or invalid prices.  
@@ -53,7 +54,7 @@ This project integrates:
 
 ---
 
-## ✅ Step 3: Data Validation (Great Expectations)
+## Step 3: Data Validation (Great Expectations)
 - Automated rules:
   - GTIN → not null, unique, 12 digits.  
   - Price → > 0 and < 5,000.  
@@ -63,19 +64,19 @@ This project integrates:
 
 ---
 
-## 🏛️ Step 4: Data Governance (Collibra)
+## Step 4: Data Governance (Collibra)
 - Built a **data dictionary** defining key fields (GTIN, Price, Brand, Category).  
 - Linked business policies (e.g., “Price must be > 0”) to technical rules in Great Expectations.  
 - Demonstrated **lineage** from raw → cleaned → validated → dashboard.
 
-    - 📑 Business Glossary – GTIN, Brand, Price, Category definitions.
-    - 🛡️ Policies & Standards – e.g., 98% GTIN validity, <1% missing brands.
-    - 🔍 Data Lineage – Raw Walmart data → Cleaning → Validation → Dashboard.
-    - 📝 Issue Management – Track exceptions like invalid GTINs or missing categories.
+    - **Business Glossary** – GTIN, Brand, Price, Category definitions.
+    - **Policies & Standards** – e.g., 98% GTIN validity, <1% missing brands.
+    - **Data Lineage** – Raw Walmart data → Cleaning → Validation → Dashboard.
+    - **Issue Management** – Track exceptions like invalid GTINs or missing categories.
 
 ---
 
-## 📊 Step 5: Dashboard
+## Step 5: Dashboard
 An interactive dashboard with:
 - **KPI Cards**: Completeness %, Valid Prices %, Overall Data Quality Score.  
 - **Failures by Rule**: Which rules fail most often.   
@@ -86,14 +87,14 @@ This dashboard simulates how retail stakeholders track **catalog health** and pr
 
 ---
 
-## 🚀 Tools & Tech
+## Tools & Tech
 - **Python** → EDA, cleaning, validation.  
 - **Great Expectations** → automated quality checks.  
 - **Collibra** → data governance policies & dictionary.    
 
 ---
 
-## 🎯 Impact
+## Impact
 This project demonstrates:
 - **Data Engineering** → building pipelines for validation.  
 - **Data Governance** → linking technical rules with business policies.  
@@ -106,7 +107,7 @@ This project demonstrates:
 
 ---
 
-## 📡 Data Source & License
+## Data Source & License
 
 - Walmart Product Details 2020 — [Kaggle](https://www.kaggle.com/datasets/promptcloud/walmart-product-details-2020) 
 
